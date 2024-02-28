@@ -3,6 +3,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Content from "./Content"; // Import Content component
 import { AiOutlineClose } from "react-icons/ai";
+import Style from "./Style";
 
 export default function RightSideBar({ formData, updateFormData }: {formData: any, updateFormData: any}) {
   
@@ -26,12 +27,14 @@ export default function RightSideBar({ formData, updateFormData }: {formData: an
               <Tabs className="w-full" defaultValue="content">
                 <TabsList className="grid  grid-cols-2">
                   <TabsTrigger value="content">Content</TabsTrigger>
-          
-
+                  <TabsTrigger value="style">Style</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="content">
                     <Content formData={formData} updateFormData={updateFormData} />
+             </TabsContent>
+             <TabsContent value="style">
+                    <Style/>
              </TabsContent>
 
               </Tabs>

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from "react";
 import RightSideBar from "./components/Sidebar";
-
 export default function Home() {
   const [formData, setFormData] = useState({
     heading: 'Welcome to',
@@ -20,8 +19,8 @@ export default function Home() {
 
 
   return (
-    <div>
-      <div className="bg-black h-10 border border-red-500 mr-80">
+    <div className=" border border-black mr-80">
+      <div className=""  style={{ width: '1300px', transform: 'scale(0.80)' }} >
         <div id={formData.id} className="p-4 max-w-8xl mx-auto bg-white">
           <div className="my-10 mx-auto max-w-7xl px-4   flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row">
             <div className="sm:text-center lg:text-left">
