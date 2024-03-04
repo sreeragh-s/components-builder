@@ -147,20 +147,20 @@ export function Content({ formData, updateFormData }: ContentProps) {
             <FormItem>
               <div className="flex justify-between items-center">
                 <FormLabel className="text-lg">Buttons</FormLabel>
-                <Button
-                  variant={"light"}
-                  className="gap-2 text-base transition duration-200"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    form.setValue("buttons", [
-                      ...field.value,
-                      { name: "New button", url: "" }, // Set up a new button with name and empty URL
-                    ]);
-                  }}
-                >
-                  <AiOutlinePlus />
-                  Add
-                </Button>
+               <Button
+  variant={"light"}
+  className="gap-2 text-base transition duration-200"
+  onClick={(e) => {
+    e.preventDefault();
+    form.setValue("buttons", [
+      ...(field.value || []), // Ensure field.value is an array or use an empty array as default
+      { name: "New button", url: "" }, // Set up a new button with name and empty URL
+    ]);
+  }}
+>
+  <AiOutlinePlus />
+  Add
+</Button>
               </div>
               <div className="flex flex-col gap-2">
                 {form.watch("buttons").map((button, index) => {
