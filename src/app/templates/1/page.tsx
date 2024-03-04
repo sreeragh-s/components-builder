@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import RightSideBar from "@components/Sidebar";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Slider } from "@/components/ui/slider";
 
-export default function Home() {
+const Template1 = () => {
   const [formData, setFormData] = useState({
     heading: "Welcome to",
     description:
@@ -22,18 +23,18 @@ export default function Home() {
   };
 
   return (
-    <div className=" border border-black mr-80">
+    <div className="h-[90vh] flex justify-center border border-black mr-80">
       <div className="" style={{ width: "1300px", transform: "scale(0.80)" }}>
         <div id={formData.id} className="p-4 max-w-8xl mx-auto bg-white">
-          <div className="my-10 mx-auto max-w-7xl px-4   flex gap-3 lg:flex-justify lg:flex flex-col lg:flex-row">
+          <div className="my-10 mx-auto max-w-7xl px-4 gap-3 justify-center {([lg:flex-justify])} lg:flex flex-col lg:flex-row">
             <div className="sm:text-center lg:text-left">
               <h1
                 dangerouslySetInnerHTML={{ __html: formData.heading }}
-                className="text-4xl tracking-tight font-bold text-black sm:text-5xl md:text-6xl"
+                className="text-4xl text-center tracking-tight font-bold text-black sm:text-5xl md:text-6xl"
               ></h1>
               <p
                 dangerouslySetInnerHTML={{ __html: formData.description }}
-                className="mt-3 text-black sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+                className="mt-3 text-center text-black sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
               ></p>
 
               {/* <!-- Button Section --> */}
@@ -52,18 +53,12 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
-            <div className="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4 ">
-              <img
-                className="h-56 w-full rounded-lg object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-                src={formData.image}
-                alt={formData.alt}
-              />
-            </div>
           </div>
         </div>
       </div>
       <RightSideBar formData={formData} updateFormData={updateFormData} />
     </div>
   );
-}
+};
+
+export default Template1;
