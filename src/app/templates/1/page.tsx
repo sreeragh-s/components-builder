@@ -4,20 +4,6 @@ import RightSideBar from "@components/Sidebar";
 import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
 
-type SliderProps = React.ComponentProps<typeof Slider>;
-
-export function SliderDemo({ className, ...props }: SliderProps) {
-  return (
-    <Slider
-      defaultValue={[50]}
-      max={100}
-      step={1}
-      className={cn("w-[60%]", className)}
-      {...props}
-    />
-  );
-}
-
 const Template1 = () => {
   const [formData, setFormData] = useState({
     heading: "Welcome to",
@@ -65,9 +51,6 @@ const Template1 = () => {
                     </a>
                   </div>
                 ))}
-              </div>
-              <div className="flex justify-center items-center w-96 h-96 border">
-              <SliderDemo />
               </div>
             </div>
           </div>

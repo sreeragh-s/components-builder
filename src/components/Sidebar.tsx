@@ -16,7 +16,7 @@ export default function RightSideBar({
   return (
     <aside
       id="RightSideBar"
-      className="fixed bg-background  z-10 h-full top-0 right-0 flex lg:flex flex-shrink-0 flex-col w-96 "
+      className="fixed bg-background z-10 h-full top-0 right-0 flex lg:flex flex-shrink-0 flex-col w-96 "
     >
       <div className="relative flex-1 flex flex-col border-l dark:border-neutral-700  pt-0">
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
@@ -31,7 +31,7 @@ export default function RightSideBar({
             </div>
             <div className="flex w-full justify-between items-center">
               <Tabs className="w-full" defaultValue="content">
-                <TabsList className="grid  grid-cols-2">
+                <TabsList className="grid grid-cols-2">
                   <TabsTrigger value="content">Content</TabsTrigger>
                   <TabsTrigger value="style">Style</TabsTrigger>
                 </TabsList>

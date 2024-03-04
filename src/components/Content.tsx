@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   Form,
   FormControl,
@@ -66,6 +66,10 @@ interface ContentProps {
 }
 
 export function Content({ formData, updateFormData }: ContentProps) {
+  const inputClass = useMemo(() => {
+    return "block p-2 w-full rounded-md border-none outline-none transition duration-200 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-indigo-600 focus:ring-2 focus:ring-inset sm:text-lg sm:leading-6";
+  }, []);
+
   const form = useForm<propertiesSchemaType>({
     resolver: zodResolver(propertiesSchema),
     mode: "onBlur",
@@ -91,11 +95,12 @@ export function Content({ formData, updateFormData }: ContentProps) {
           render={({ field }) => (
             <FormItem>
               <div className="space-y-0.5"></div>
-              <FormLabel className="text-base">Heading</FormLabel>
+              <FormLabel className="text-lg">Heading</FormLabel>
               <FormControl>
                 {/* <Tiptap onBlur={field.onChange} value={field.value}  /> */}
                 <Input
                   {...field}
+                  className={inputClass}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       e.currentTarget.blur();
@@ -114,12 +119,13 @@ export function Content({ formData, updateFormData }: ContentProps) {
           render={({ field }) => (
             <FormItem>
               <div className="space-y-0.5"></div>
-              <FormLabel>Description</FormLabel>
+              <FormLabel className="text-lg">Description</FormLabel>
               <FormControl>
                 {/*      
                <Tiptap onBlur={field.onChange} value={field.value}  /> */}
                 <Input
                   {...field}
+                  className={inputClass}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       e.currentTarget.blur();
@@ -140,7 +146,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
           render={({ field }) => (
             <FormItem>
               <div className="flex justify-between items-center">
-                <FormLabel>Buttons</FormLabel>
+                <FormLabel className="text-lg">Buttons</FormLabel>
                 <Button
                   variant={"light"}
                   className="gap-2 text-base transition duration-200"
@@ -165,6 +171,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                     >
                       <Input
                         placeholder="Button name"
+                        className={inputClass}
                         value={button.name}
                         onChange={(e) => {
                           const newButtons = [...field.value];
@@ -175,6 +182,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
 
                       <Input
                         placeholder="Button URL"
+                        className={inputClass}
                         value={button.url}
                         onChange={(e) => {
                           const newButtons = [...field.value];
