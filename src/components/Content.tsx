@@ -153,7 +153,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                   onClick={(e) => {
                     e.preventDefault();
                     form.setValue("buttons", [
-                      ...field.value,
+                      ...(field.value || []),
                       { name: "New button", url: "" }, // Set up a new button with name and empty URL
                     ]);
                   }}
@@ -163,7 +163,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                 </Button>
               </div>
               <div className="flex flex-col gap-2">
-                {form.watch("buttons").map((button, index) => {
+                {form?.watch("buttons")?.map((button, index) => {
                   return (
                     <div
                       className="flex gap-1 items-center justify-between"
@@ -174,7 +174,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         className={inputClass}
                         value={button.name}
                         onChange={(e) => {
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons[index].name = e.target.value;
                           field.onChange(newButtons);
                         }}
@@ -185,7 +185,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         className={inputClass}
                         value={button.url}
                         onChange={(e) => {
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons[index].url = e.target.value;
                           field.onChange(newButtons);
                         }}
@@ -196,7 +196,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         size={"icon"}
                         onClick={(e) => {
                           e.preventDefault();
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons.splice(index, 1);
                           field.onChange(newButtons);
                         }}
