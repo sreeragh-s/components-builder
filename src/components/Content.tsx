@@ -147,6 +147,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
             <FormItem>
               <div className="flex justify-between items-center">
                 <FormLabel className="text-lg">Buttons</FormLabel>
+
                <Button
   variant={"light"}
   className="gap-2 text-base transition duration-200"
@@ -161,9 +162,10 @@ export function Content({ formData, updateFormData }: ContentProps) {
   <AiOutlinePlus />
   Add
 </Button>
+
               </div>
               <div className="flex flex-col gap-2">
-                {form.watch("buttons").map((button, index) => {
+                {form?.watch("buttons")?.map((button, index) => {
                   return (
                     <div
                       className="flex gap-1 items-center justify-between"
@@ -174,7 +176,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         className={inputClass}
                         value={button.name}
                         onChange={(e) => {
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons[index].name = e.target.value;
                           field.onChange(newButtons);
                         }}
@@ -185,7 +187,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         className={inputClass}
                         value={button.url}
                         onChange={(e) => {
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons[index].url = e.target.value;
                           field.onChange(newButtons);
                         }}
@@ -196,7 +198,7 @@ export function Content({ formData, updateFormData }: ContentProps) {
                         size={"icon"}
                         onClick={(e) => {
                           e.preventDefault();
-                          const newButtons = [...field.value];
+                          const newButtons = [...(field.value || [])];
                           newButtons.splice(index, 1);
                           field.onChange(newButtons);
                         }}

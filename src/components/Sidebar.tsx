@@ -16,9 +16,9 @@ export default function RightSideBar({
   return (
     <aside
       id="RightSideBar"
-      className="fixed bg-background z-10 h-full top-0 right-0 flex lg:flex flex-shrink-0 flex-col w-96 "
+      className="absolute bg-background z-10 h-full top-0 right-0 flex lg:flex flex-shrink-0 flex-col w-96 "
     >
-      <div className="relative flex-1 flex flex-col border-l dark:border-neutral-700  pt-0">
+      <div className="relative flex-1 flex flex-col dark:border-neutral-700  pt-0">
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <div className="flex flex-col px-4 ">
             <div className="flex justify-between pb-4">
